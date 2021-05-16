@@ -1,6 +1,6 @@
 {
   "name": "check-unsafe-routes",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Package to veriry authentication on express routes in node.js apps.",
   "main": "index.js",
   "scripts": {
