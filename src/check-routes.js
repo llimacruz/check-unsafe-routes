@@ -16,15 +16,28 @@ const checkRoutes = (params) => {
 
   const routes = [];
   const router = params.app._router.stack.find((element) => element.name === 'router');
-  router.handle.stack.forEach((element) => {
-    const route = {
-      path: element.route.path,
-      method: getMethod(element.route),
-      hasAuth: !!element.route.stack.find((stackRouteItem) => stackRouteItem.name === 'authenticate'),
-      allowedUnsafe: allowedUnsafe.includes(element.route.path)
-    };
-    routes.push(route);
-  });
+  if (router) {
+    router.handle.stack.forEach((element) => {
+      const route = {
+        path: element.route.path,
+        method: getMethod(element.route),
+        hasAuth: !!element.route.stack.find((stackRouteItem) => stackRouteItem.name === 'authenticate'),
+        allowedUnsafe: allowedUnsafe.includes(element.route.path)
+      };
+      routes.push(route);
+    });
+  } else {
+    const rootRouter = params.app._router.stack.filter((element) => element.name === 'bound dispatch');
+    rootRouter.forEach((element) => {
+        const route = {
+          path: element.route.path,
+          method: getMethod(element.route),
+          hasAuth: !!element.route.stack.find((stackRouteItem) => stackRouteItem.name === 'authenticate'),
+          allowedUnsafe: allowedUnsafe.includes(element.route.path)
+        };
+        routes.push(route);
+      });
+  }
 
   return {
     unsafeCounter: routes.filter((route) => !route.hasAuth && !route.allowedUnsafe).length || 0,

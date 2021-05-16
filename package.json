@@ -4,7 +4,7 @@
   "description": "Package to veriry authentication on express routes in node.js apps.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
     "url": "https://github.com/llimacruz/check-unsafe-routes/issues"
   },
   "homepage": "https://github.com/llimacruz/check-unsafe-routes#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "express": "^4.17.1",
+    "mocha": "^8.4.0"
+  }
 }
