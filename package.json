@@ -1,0 +1,26 @@
+{
+  "name": "check-unsafe-routes",
+  "version": "0.0.1",
+  "description": "Package to veriry authentication on express routes in node.js apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/llimacruz/check-unsafe-routes.git"
+  },
+  "keywords": [
+    "authentication",
+    "node",
+    "express",
+    "api"
+  ],
+  "author": "https://github.com/llimacruz/",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/llimacruz/check-unsafe-routes/issues"
+  },
+  "homepage": "https://github.com/llimacruz/check-unsafe-routes#readme",
+  "devDependencies": {}
+}
